@@ -7,5 +7,6 @@ package cn.brave.player.bean;
  **/
 public abstract class AbstractMedia {
 
+    protected static final String NAME = "";
 
 }
