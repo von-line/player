@@ -7,4 +7,5 @@ package cn.brave.player.bean;
  **/
 public abstract class AbstractMedia {
 
+
 }
