@@ -1,4 +1,4 @@
-package cn.brave.player.util;
+package cn.brave.player.util.function;
 
 import java.io.File;
 
