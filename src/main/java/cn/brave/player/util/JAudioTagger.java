@@ -3,9 +3,12 @@ package cn.brave.player.util;
 import cn.brave.player.bean.entity.AudioMetaData;
 import org.jaudiotagger.audio.AudioFile;
 import org.jaudiotagger.audio.AudioFileIO;
+import org.jaudiotagger.audio.AudioHeader;
 import org.jaudiotagger.audio.exceptions.CannotReadException;
 import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException;
 import org.jaudiotagger.audio.exceptions.ReadOnlyFileException;
+import org.jaudiotagger.tag.FieldKey;
+import org.jaudiotagger.tag.Tag;
 import org.jaudiotagger.tag.TagException;
 
 import java.io.File;
@@ -37,4 +40,13 @@ public class JAudioTagger {
         return Optional.empty();
     }
 
+    public AudioMetaData parse(AudioFile audioFile) {
+        AudioHeader header = audioFile.getAudioHeader();
+        Tag tag = audioFile.getTagOrCreateDefault();
+        String artist = tag.getFirst(FieldKey.ARTIST);
+        String bitRate = header.getBitRate();
+        String channels = header.getChannels();
+        int byteRate = header.getByteRate();
+        return new AudioMetaData();
+    }
 }
