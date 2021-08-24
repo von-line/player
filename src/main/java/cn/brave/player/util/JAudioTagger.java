@@ -24,6 +24,11 @@ public class JAudioTagger {
 
     private AudioFileIO defaultReader = AudioFileIO.getDefaultAudioFileIO();
 
+    /**
+     * read file from file system
+     * @param file audio file
+     * @return Optional
+     */
     public Optional<AudioFile> read(File file) {
         String filename = file.getName();
         try {
@@ -40,6 +45,11 @@ public class JAudioTagger {
         return Optional.empty();
     }
 
+    /**
+     * parser given audioFile object
+     * @param audioFile audioFile
+     * @return AudioMetaData
+     */
     public AudioMetaData parse(AudioFile audioFile) {
         AudioHeader header = audioFile.getAudioHeader();
         Tag tag = audioFile.getTagOrCreateDefault();
