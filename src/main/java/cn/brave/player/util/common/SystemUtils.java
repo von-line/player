@@ -33,8 +33,4 @@ public class SystemUtils {
         return System.getenv("OS").toLowerCase();
     }
 
-    public static void main(String[] args) {
-        Properties properties = System.getProperties();
-
-    }
 }
